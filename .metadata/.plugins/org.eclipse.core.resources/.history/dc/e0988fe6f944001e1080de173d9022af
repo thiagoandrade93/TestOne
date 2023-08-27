@@ -1,0 +1,18 @@
+package br.ce.wcaquino;
+
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TestLogin {
+	
+	@Test
+	public void TestLogin() {
+		System.setProperty("webdriver.chromedriver", "/Users/ice_tandrade/Documents/ChromeDriver");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://codility-frontend-prod.s3.amazonaws.com/media/task_static/qa_login_page/9a83bda125cd7398f9f482a3d6d45ea4/static/attachments/reference_page.html");
+		
+	}
+	
+
+}

@@ -1,0 +1,49 @@
+package br.ce.wcaquino;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Wait;
+
+public class TestLogin {
+	
+	private WebDriver driver;
+	private Constants constante;
+	private DSL dsl;
+	
+	
+	
+	@Before
+	public void start() {
+		System.setProperty("webdriver.chrome.driver", "/Users/ice_tandrade/Documents/ChromeDriver/chromedriver");
+		driver = new ChromeDriver();
+		driver.get(constante.URL);
+		
+	}
+	
+	@After
+	public void quit() {
+		driver.quit();
+	}
+	
+
+	@Test
+	public void ValidaUserValidos() throws InterruptedException {
+		driver.findElement(By.id("email-input")).click();
+		driver.findElement(By.id("email-input")).sendKeys(constante.userValido);
+		driver.findElement(By.id("password-input")).sendKeys(constante.password);
+		driver.findElement(By.id("login-button")).click();
+		//dsl.ValidaTextoAparece("(//div[contains(@class,’message success’))", "Welcome to Codility");
+		wait(1000);
+		Assert.assertTrue(driver.findElement(By.xpath("(//div[contains(@class,’message success’))")).getText().contains("Welcome to Codility"));
+		
+		
+	}
+	
+	
+}

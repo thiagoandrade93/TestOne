@@ -1,0 +1,96 @@
+package br.ce.wcaquino;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Wait;
+
+public class TestLogin {
+	
+	private WebDriver driver;
+	private Constants constante;
+	private DSL dsl;
+	
+	
+	
+	@Before
+	public void start() {
+		System.setProperty("webdriver.chrome.driver", "/Users/ice_tandrade/Documents/ChromeDriver/chromedriver");
+		driver = new ChromeDriver();
+		driver.get(constante.URL);
+		 driver.manage().timeouts().implicitlyWait(60000, TimeUnit.MILLISECONDS);
+		
+	}
+	
+	@After
+	public void quit() {
+		driver.quit();
+	}
+	
+
+	@Test
+	public void ValidaUserValido() {
+		driver.findElement(By.id("email-input")).click();
+		driver.findElement(By.id("email-input")).sendKeys(constante.userValido);
+		driver.findElement(By.id("password-input")).sendKeys(constante.password);
+		driver.findElement(By.id("login-button")).click();
+		Assert.assertTrue(driver.findElement(By.xpath("//div[contains(text(),'Welcome to Codility')]")).getText().contains("Welcome to Codility"));
+	}
+	
+	@Test 
+	public void ValidaUserInvalido() {
+		driver.findElement(By.id("email-input")).click();
+		driver.findElement(By.id("email-input")).sendKeys(constante.userIvalido);
+		driver.findElement(By.id("password-input")).sendKeys(constante.password);
+		driver.findElement(By.id("login-button")).click();
+		Assert.assertTrue(driver.findElement(By.xpath("//div[contains(text(),'You shall not pass! Arr!')]")).getText().contains("You shall not pass! Arr!"));
+	}
+	
+	@Test 
+	public void ValidaUserSemArroba() {
+		driver.findElement(By.id("email-input")).click();
+		driver.findElement(By.id("email-input")).sendKeys(constante.userSemArroba);
+		driver.findElement(By.id("password-input")).sendKeys(constante.password);
+		driver.findElement(By.id("login-button")).click();
+		Assert.assertTrue(driver.findElement(By.xpath("//div[contains(text(),'Enter a valid email')]")).getText().contains("Enter a valid email"));
+	}
+	
+	@Test 
+	public void ValidaUserSemPonto() {
+		driver.findElement(By.id("email-input")).click();
+		driver.findElement(By.id("email-input")).sendKeys(constante.userSemPonto);
+		driver.findElement(By.id("password-input")).sendKeys(constante.password);
+		driver.findElement(By.id("login-button")).click();
+		Assert.assertTrue(driver.findElement(By.xpath("//div[contains(text(),'Enter a valid email')]")).getText().contains("Enter a valid email"));
+	}
+
+	@Test 
+	public void ValidaUserSemNome() {
+		driver.findElement(By.id("email-input")).click();
+		driver.findElement(By.id("email-input")).sendKeys(constante.userSemNome);
+		driver.findElement(By.id("password-input")).sendKeys(constante.password);
+		driver.findElement(By.id("login-button")).click();
+		Assert.assertTrue(driver.findElement(By.xpath("//div[contains(text(),'Enter a valid email')]")).getText().contains("Enter a valid email"));
+	}
+	
+	
+	@Test 
+	public void ValidaUserSemProvedor() {
+		driver.findElement(By.id("email-input")).click();
+		driver.findElement(By.id("email-input")).sendKeys(constante.userSemCO);
+		driver.findElement(By.id("password-input")).sendKeys(constante.password);
+		driver.findElement(By.id("login-button")).click();
+		Assert.assertTrue(driver.findElement(By.xpath("//div[contains(text(),'Enter a valid email')]")).getText().contains("Enter a valid email"));
+	}
+
+
+
+	
+}

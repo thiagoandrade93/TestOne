@@ -1,0 +1,39 @@
+package br.ce.wcaquino;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Wait;
+
+public class TestLogin {
+	
+//	private WebDriver driver;
+	private Constants constante;
+	
+	
+	
+//	@Before
+//	public void start() {
+//		System.setProperty("webdriver.chrome.driver", "/Users/ice_tandrade/Documents/ChromeDriver/chromedriver");
+//		WebDriver driver = new ChromeDriver();
+//		driver.get(constante.URL);
+		
+//	}
+	
+	
+
+	@Test
+	public void ValidaUserValidos() {
+		WebDriver driver = new ChromeDriver();
+		driver.get(constante.URL);
+		driver.findElement(By.id("email-input")).click();
+		driver.findElement(By.id("email-input")).sendKeys(constante.userValido);
+		driver.findElement(By.id("password-input")).sendKeys(constante.password);
+	}
+	
+	
+}

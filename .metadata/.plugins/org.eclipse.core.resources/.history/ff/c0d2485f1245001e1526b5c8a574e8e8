@@ -1,0 +1,18 @@
+package br.ce.wcaquino;
+
+import org.openqa.selenium.WebDriver;
+
+public class LoginPage {
+	
+	 private DSL dsl;
+
+     public LoginPage(WebDriver driver) {
+         dsl = new DSL(driver);
+
+}
+     
+    public void ClickBtnLogin() {
+    	dsl.click("email-input");
+    }
+     
+}
