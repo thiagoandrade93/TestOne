@@ -12,16 +12,16 @@ TrustlyTest/src/main/java/Home
 
 Classes:
 
-Constante:
-Possui dados que podem ser alterados ao longo da vida do projeto e que estão alocados em uma classe especifica, para melhor manutenção. Dados de login, diretórios, por exemplo estão alocados neste local.
+Constant:
+It has data that can be changed throughout the life of the project and that are allocated in a specific class, for better maintenance. Login data, directories for example are located in this location.
 
 DSL:
-Nesta classe estão métodos bem descritidos que vão facilitar a interação com os métodos do selenium. Com isso troquei métodos genericos, por especificos, para a ação que desejemos executar naquele momento.
+In this class are well described methods that will facilitate interaction with selenium methods. With that, I changed generic methods for specific ones, for the action we want to execute at that moment.
 
 LoginPage:
-Classe onde está localizado todos os elementos da tela. Centralizando os locators em uma Page, a manutenção do código será muito mais fácil. Isso irá auxiliar também quando utilizamos o mesmo elemento em vários testes.
+Class where all screen elements are located. By centralizing the locators on a Page, code maintenance will be much easier. This will also help when we use the same element in several tests.
 
 TestLogin:
-Classe principal com as chamadas do teste.
+Main class with test calls.
 
 Hope you like it!
