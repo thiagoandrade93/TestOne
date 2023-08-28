@@ -2,7 +2,7 @@
 
 
 Hey guys,
-welcome to project TestOne projetc.
+welcome to TestOne projetc.
 
 In addition to performing the test on the platform, I ran the tests using Selenium with Java. The tests are running using the Google Chrome browser.
 In addition, the project uses PageObject and best practices.
